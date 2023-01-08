@@ -75,7 +75,7 @@ function cumleKur(birinci, ikinci="", ucuncu="", dorduncu="", besinci=""){
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 1 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
 
-
+cumleler.length
 
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 2 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
@@ -84,7 +84,7 @@ function cumleKur(birinci, ikinci="", ucuncu="", dorduncu="", besinci=""){
 
 
 /* (Oto test var) cumleKur fonksiyonuna 5 parametre göndererek "Ben iyi bir yazılımcı olacağım!" stringini elde edin, sonucu `bircumle` değişkenine atayın ve konsolde gözlemleyin */
-var bircumle;
+var bircumle = cumleKur('Ben'," iyi"," bir"," yazılımcı", " olacağım!")
 
 /* kodlar buraya */
 
@@ -104,9 +104,13 @@ var bircumle;
 	*/
 	
 
-function cumlelereDonustur(/* kodlar buraya */ ){
-	/* kodlar buraya */
+function cumlelereDonustur(GelenDizi,ikinci="," ){
+	let YeniDizi=GelenDizi.map(indeks => {
+		return indeks.join(ikinci) 
+	})
+return YeniDizi
 }
+console.log(cumlelereDonustur(cumleler," "));
 
 
 
@@ -120,9 +124,12 @@ function cumlelereDonustur(/* kodlar buraya */ ){
 			6. Oluşturulan paragraf döndürülecek
 	*/
 	
-function paragrafOlustur(/* kodlar buraya */ ){
-	/* kodlar buraya */ 
+function paragrafOlustur(gelenDizi,g_cumleKur,g_cumlelereDonustur){
+	let yeniDizi = g_cumlelereDonustur(gelenDizi, " ");
+	let paragraf =g_cumleKur(yeniDizi[1],yeniDizi[3], yeniDizi[5], yeniDizi[7], yeniDizi[9]);
+	return paragraf
 }
+console.log(paragrafOlustur(cumleler,cumleKur,cumlelereDonustur));
 
 
 /* 	GÖREV 3:
@@ -132,7 +139,8 @@ function paragrafOlustur(/* kodlar buraya */ ){
 //3a çözümü
 /* kodlar buraya */
 
-
+meyveler.pop();
+meyveler.shift();
 
 
 
@@ -142,7 +150,8 @@ function paragrafOlustur(/* kodlar buraya */ ){
 //3b çözümü
 /* kodlar buraya */
 
-
+sebzeler.unshift('🐇');
+sebzeler.push('🦔');
 
 
 
@@ -154,7 +163,7 @@ function paragrafOlustur(/* kodlar buraya */ ){
 	//3c çözümü
 /* kodlar buraya */
 
-var manav;
+var manav = meyveler.concat(sebzeler);
 
 
 
@@ -170,11 +179,16 @@ var manav;
 			4. elde edilen string döndürülecek
  */
 
-function emojileriDonustur(/* kodlar buraya */){
-/* kodlar buraya */
-
+function emojileriDonustur(atilanMesaj,gelenObje){
+	for(let key in gelenObje){
+		console.log(key)
+		console.log(gelenObje[key])
+		atilanMesaj= atilanMesaj.replaceAll(key.toLowerCase(),gelenObje[key])
+		atilanMesaj=atilanMesaj.replaceAll(key.toUpperCase(),gelenObje[key])
+	}
+	return atilanMesaj
 }
-
+console.log(emojileriDonustur("Naber :smile: nasılsın :d görmeyeli :o",emojiler));
 
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
